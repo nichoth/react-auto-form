@@ -1,0 +1,30 @@
+{
+  "name": "little-form",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "browserify": {
+    "transform": [
+      [
+        "reactify",
+        {
+          "es6": true
+        }
+      ]
+    ]
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "browserify index.react.js > dist/bundle.js",
+    "watch": "watchify example/example.react.js -o example/bundle.js -dv",
+    "server": "node server.js",
+    "dev": "npm run watch & npm run server",
+    "demo": "browserify example/example.react.js > example/bundle.js && html-inline example/index.html | curl -sT https://htmlb.in | pbcopy && echo \"Don\\'t forget to paste the demo URL into the readme.\""
+  },
+  "author": "Nick Thomas <nichoth@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "ecstatic": "^0.7.1",
+    "reactify": "^1.1.0"
+  }
+}
