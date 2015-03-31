@@ -59,7 +59,7 @@ var Facet = React.createClass({
     var styles = {
       padding: "1em",
       display: "inline-block",
-      maxWidth: "50%"
+      maxWidth: "45%"
     };
 
     var content = this.props.defaultContent || {field: null, value: null};
@@ -74,7 +74,8 @@ var Facet = React.createClass({
             defaultValue={content.field}
           />
         </div>
-        <div className="test-field" style={styles}>
+        :
+        <div className="test-value" style={styles}>
           <TextField
             ref="value"
             onKeyDown={this.valueKeyDownHandler}

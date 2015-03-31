@@ -7,12 +7,11 @@ var Form = React.createClass({
 
   getInitialState: function() {
     return {
-      rows: [true]
+      rows: []
     };
   },
 
   onFacetComplete: function(pair) {
-    console.log(this.refs.form.children);
     if (pair.field && pair.value) {
       var state = this.state;
       state.rows.push(pair);
@@ -23,17 +22,15 @@ var Form = React.createClass({
   },
 
   onFacetDelete: function(pair, elmt) {
-    if (this.state.rows.length > 1) {
+    if (this.state.rows.length > 0) {
       var state = this.state;
-      console.log(elmt.props.index);
       delete state.rows[elmt.props.index];
       this.setState(state);
-      this.refs[elmt.props.index-1].refs.value.focus();
+      this.refs[elmt.props.index - 1].refs.value.focus();
     }
   },
 
   render: function() {
-    console.log(this.state);
     var rows = this.state.rows.map(function(row, i) {
       return (
         <Facet
@@ -48,10 +45,11 @@ var Form = React.createClass({
 
     return (
       <Paper className="test" zDepth={1}>
-        <div ref="form" className="form">
+        <div ref={'form'} className="form">
           {rows}
           <Facet
             ref={'empty'}
+            index={this.state.rows.length}
             onComplete={this.onFacetComplete}
             onDelete={this.onFacetDelete}
           />
