@@ -1,5 +1,5 @@
 var React = require('react'),
-    Facet = require('./Facet.react'),
+    Facet = require('./lib/Facet.react'),
     mui = require('material-ui'),
     Paper = mui.Paper;
 
