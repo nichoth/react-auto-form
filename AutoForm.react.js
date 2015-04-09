@@ -39,6 +39,8 @@ var Form = React.createClass({
           key={i}
           index={i}
           ref={i}
+          fieldHintText={'field'}
+          valueHintText={'value'}
         />
       );
     }, this);
@@ -52,6 +54,8 @@ var Form = React.createClass({
             index={this.state.rows.length}
             onComplete={this.onFacetComplete}
             onDelete={this.onFacetDelete}
+            fieldHintText={'field'}
+            valueHintText={'value'}
           />
         </div>
       </Paper>
