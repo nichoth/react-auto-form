@@ -5,6 +5,11 @@ var React = require('react'),
 
 var Form = React.createClass({
 
+  propTypes: {
+    fieldHintText: React.PropTypes.string,
+    valueHintText: React.PropTypes.string
+  },
+
   getInitialState: function() {
     return {
       rows: []
@@ -39,8 +44,8 @@ var Form = React.createClass({
           key={i}
           index={i}
           ref={i}
-          fieldHintText={'field'}
-          valueHintText={'value'}
+          fieldHintText={this.props.fieldHintText}
+          valueHintText={this.props.valueHintText}
         />
       );
     }, this);
@@ -54,8 +59,8 @@ var Form = React.createClass({
             index={this.state.rows.length}
             onComplete={this.onFacetComplete}
             onDelete={this.onFacetDelete}
-            fieldHintText={'field'}
-            valueHintText={'value'}
+            fieldHintText={this.props.fieldHintText}
+            valueHintText={this.props.valueHintText}
           />
         </div>
       </Paper>
