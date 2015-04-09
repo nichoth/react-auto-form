@@ -1,6 +1,6 @@
 # React Auto Form
 
-Blank input elements for key value pairs.
+Automatically add more blank input elements for key value pairs.
 
 ```js
 var React = require('react');
