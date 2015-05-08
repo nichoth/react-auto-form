@@ -26,5 +26,8 @@
   "devDependencies": {
     "ecstatic": "^0.7.1",
     "reactify": "^1.1.0"
+  },
+  "peerDependencies": {
+    "react": "^0.12.2"
   }
 }

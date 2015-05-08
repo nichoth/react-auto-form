@@ -1,7 +1,6 @@
 var React = require('react'),
     Facet = require('./lib/Facet.react'),
-    mui = require('material-ui'),
-    Paper = mui.Paper;
+    mui = require('material-ui');
 
 var Form = React.createClass({
 
@@ -14,6 +13,18 @@ var Form = React.createClass({
     return {
       rows: []
     };
+  },
+
+  // return all the stuff in the inputs
+  getData: function() {
+    var data = Object.keys(this.refs).map(function(key) {
+      return this.refs[key].getContent();
+    }, this)
+      .filter(function(pair) {
+        return (pair.field.length && pair.value.length);
+      })
+    ;
+    return data;
   },
 
   onFacetComplete: function(pair) {
@@ -51,8 +62,7 @@ var Form = React.createClass({
     }, this);
 
     return (
-      <Paper className="test" zDepth={1}>
-        <div ref={'form'} className="form">
+        <div className="form">
           {rows}
           <Facet
             ref={'empty'}
@@ -63,7 +73,6 @@ var Form = React.createClass({
             valueHintText={this.props.valueHintText}
           />
         </div>
-      </Paper>
     );
   }
 
