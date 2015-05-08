@@ -1,6 +1,5 @@
 var React = require('react'),
-    Facet = require('./lib/Facet.react'),
-    mui = require('material-ui');
+    Facet = require('./lib/Facet.react');
 
 var Form = React.createClass({
 
